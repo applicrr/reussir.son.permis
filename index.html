@@ -468,6 +468,20 @@ html.wel-open,html.wel-open body{overflow:hidden}
 .bigq svg{margin:0 auto 10px}
 .endcard .verdict{margin-top:14px}
 .crrlink{display:inline-flex;align-items:center;gap:7px;font-weight:800;text-decoration:none;color:var(--blue-d);border-bottom:2px solid currentColor}
+
+/* lien vers le site jumeau */
+.twin{display:inline-flex;align-items:center;gap:7px;font:800 15px/1 var(--f-body);text-decoration:none;color:var(--muted);padding:6px 14px 6px 6px;border-radius:999px;border:2px solid var(--line);white-space:nowrap}
+.twin svg{width:24px;height:24px;flex:none}
+.twin:hover{background:var(--surface-2);color:var(--blue-d)}
+@media (max-width:640px){.twin{display:none}}
+.twincard{display:flex;align-items:center;gap:14px;margin:0 0 14px;padding:12px 16px;border-radius:18px;border:2px solid var(--line);border-bottom-width:4px;background:var(--surface);color:var(--ink);text-decoration:none}
+.twincard>svg:first-child{width:40px;height:40px;flex:none}
+.twincard span{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;line-height:1.35}
+.twincard small{font:800 11.5px var(--f-body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.twincard b{font:600 19px var(--f-display);color:var(--head)}
+.twincard em{font-style:normal;font-size:14px;color:var(--muted);font-weight:600}
+.twincard .tw-ar{width:22px;height:22px;flex:none;color:var(--blue-d)}
+.twincard:hover{border-color:var(--blue)}
 </style></head>
 <body>
 <header class="bar" id="bar">
@@ -480,12 +494,12 @@ html.wel-open,html.wel-open body{overflow:hidden}
       <a href="#entrainement" data-tab="entrainement">QCM</a>
       <a href="#examen" data-tab="examen">Examen</a>
     </nav>
+    <a class="twin" href="https://applicrr.github.io/reussir.son.crr/" title="Préparer aussi le CRR (certificat radio VHF)"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1E88E5"></circle><path d="M17 6v10M12 9l5-3 5 3" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path><path d="M5 22c3-3 5-3 8 0s5 3 8 0 5-3 8 0" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" fill="none"></path></svg><span>CRR</span></a>
     <a class="igtab" href="https://www.instagram.com/reussir.son.crr/" target="_blank" rel="noopener" title="M'écrire sur Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-4.3A8 8 0 0 1 13 4a8 8 0 0 1 8 8Z"></path><path d="M9 11h8M9 15h5"></path></svg><span>Instagram</span></a>
   </div>
 </header>
 <main class="wrap" id="app"></main>
-<footer class="wrap sitefoot"><p class="igline">Une question, une erreur&nbsp;? Une amélioration à proposer&nbsp;? <a class="iglink" href="https://www.instagram.com/reussir.son.crr/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-4.3A8 8 0 0 1 13 4a8 8 0 0 1 8 8Z"></path><path d="M9 11h8M9 15h5"></path></svg>Écrivez-moi sur Instagram</a></p>
-<p class="igline">Vous préparez aussi le CRR&nbsp;? <a class="crrlink" href="https://applicrr.github.io/reussir.son.crr/">Cap sur le CRR, le site du même auteur</a></p>
+<footer class="wrap sitefoot"><a class="twincard" href="https://applicrr.github.io/reussir.son.crr/"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1E88E5"></circle><path d="M17 6v10M12 9l5-3 5 3" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path><path d="M5 22c3-3 5-3 8 0s5 3 8 0 5-3 8 0" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" fill="none"></path></svg><span><small>Le site jumeau</small><b>Cap sur le CRR</b><em>Le certificat radio VHF : cours, fiches, alphabet marin, QCM et examens blancs.</em></span><svg class="tw-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><p class="igline">Une question, une erreur&nbsp;? Une amélioration à proposer&nbsp;? <a class="iglink" href="https://www.instagram.com/reussir.son.crr/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-4.3A8 8 0 0 1 13 4a8 8 0 0 1 8 8Z"></path><path d="M9 11h8M9 15h5"></path></svg>Écrivez-moi sur Instagram</a></p>
 <p><b>Outil de révision non officiel.</b> Ce site est une aide personnelle à la préparation du code du permis plaisance option côtière. Il n'est ni édité, ni validé, ni affilié à l'administration, à un bateau-école ou à un éditeur de code. Le cours, les fiches et les questions sont rédigés d'après le programme de l'examen (balisage AISM région A, RIPAM, division 240) ; la réglementation peut évoluer : vérifiez toujours auprès de votre bateau-école. Aucune garantie de réussite à l'examen.</p></footer>
 <script>
 const LOGO = '<svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1E88E5"></circle><path d="M17 6v10M12 9l5-3 5 3" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path><path d="M5 22c3-3 5-3 8 0s5 3 8 0 5-3 8 0" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" fill="none"></path></svg>';
