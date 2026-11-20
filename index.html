@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Réussir son permis bateau côtier</title>
+<meta name="description" content="Révisions du code du permis plaisance option côtière : cours, entraînement par thème et examens blancs de 40 questions.">
+<style>
+:root{
+  --navy:#0b2545; --sea:#13315c; --blue:#1e6fb8; --light:#eef4fa; --white:#fff;
+  --ok:#1f9d55; --ko:#d64545; --warn:#e8a317; --text:#1b2a3a; --muted:#5b6b7c;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--light);color:var(--text);line-height:1.45}
+header{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:18px 16px 14px;text-align:center}
+header h1{margin:0;font-size:1.35rem}
+header p{margin:4px 0 0;opacity:.85;font-size:.9rem}
+nav{display:flex;gap:6px;overflow-x:auto;padding:10px;background:var(--sea);position:sticky;top:0;z-index:5;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:1 0 auto;border:0;border-radius:999px;padding:9px 14px;background:rgba(255,255,255,.12);color:#fff;font-weight:600;font-size:.9rem;cursor:pointer;white-space:nowrap}
+nav button.active{background:#fff;color:var(--navy)}
+main{max-width:820px;margin:0 auto;padding:16px}
+.card{background:#fff;border-radius:var(--radius);padding:16px;margin-bottom:14px;box-shadow:0 2px 8px rgba(11,37,69,.08)}
+h2{color:var(--navy);margin:.2em 0 .6em;font-size:1.25rem}
+h3{color:var(--sea);margin:1em 0 .4em;font-size:1.05rem}
+.btn{display:inline-block;border:0;border-radius:10px;padding:12px 18px;font-weight:700;font-size:1rem;cursor:pointer;background:var(--blue);color:#fff}
+.btn.sec{background:#e3ecf6;color:var(--navy)}
+.btn.ok{background:var(--ok)}
+.btn:disabled{opacity:.5;cursor:default}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.theme-btn{border:2px solid #d8e3ef;background:#fff;border-radius:12px;padding:14px 10px;text-align:left;cursor:pointer;font-size:.95rem;color:var(--text)}
+.theme-btn:hover{border-color:var(--blue)}
+.theme-btn b{display:block;color:var(--navy);margin-bottom:2px}
+.theme-btn small{color:var(--muted)}
+.stats{display:flex;gap:10px;flex-wrap:wrap}
+.stat{flex:1 1 120px;background:var(--light);border-radius:12px;padding:12px;text-align:center}
+.stat b{display:block;font-size:1.5rem;color:var(--navy)}
+.stat span{font-size:.82rem;color:var(--muted)}
+.progress{height:8px;background:#dde7f1;border-radius:99px;overflow:hidden;margin:6px 0 14px}
+.progress div{height:100%;background:var(--blue);transition:width .3s}
+.qhead{display:flex;justify-content:space-between;color:var(--muted);font-size:.88rem;margin-bottom:6px}
+.question{font-size:1.08rem;font-weight:600;margin:8px 0 12px}
+.qimg{text-align:center;margin:6px 0 10px}
+.answers{display:flex;flex-direction:column;gap:8px}
+.answer{display:flex;gap:10px;align-items:flex-start;text-align:left;border:2px solid #d8e3ef;background:#fff;border-radius:12px;padding:12px;font-size:1rem;cursor:pointer;color:var(--text)}
+.answer .l{flex:0 0 26px;height:26px;border-radius:50%;background:#e3ecf6;color:var(--navy);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.answer.sel{border-color:var(--blue);background:#eaf3fc}
+.answer.good{border-color:var(--ok);background:#e7f7ee}
+.answer.bad{border-color:var(--ko);background:#fdeaea}
+.answer:disabled{cursor:default}
+.expl{margin-top:12px;padding:12px;border-radius:12px;background:#fff8e6;border-left:4px solid var(--warn);font-size:.95rem}
+.expl.okb{background:#e7f7ee;border-color:var(--ok)}
+.expl.kob{background:#fdeaea;border-color:var(--ko)}
+.actions{display:flex;gap:10px;justify-content:space-between;margin-top:14px;flex-wrap:wrap}
+.result-big{font-size:2.6rem;font-weight:800;text-align:center;margin:6px 0}
+.pass{color:var(--ok)} .fail{color:var(--ko)}
+.marks{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:8px 0}
+.mark{text-align:center;font-size:.8rem;width:110px}
+.mark b{display:block;color:var(--navy);font-size:.85rem}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:6px 0}
+th,td{border:1px solid #dbe5ef;padding:7px;text-align:left;vertical-align:top}
+th{background:#eaf1f8;color:var(--navy)}
+.tip{background:#eaf3fc;border-radius:10px;padding:10px 12px;font-size:.93rem;margin:8px 0}
+.review-item{border-bottom:1px solid #e5edf5;padding:10px 0}
+.review-item:last-child{border:0}
+.ok-t{color:var(--ok);font-weight:700}.ko-t{color:var(--ko);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px}
+.chip{background:#e3ecf6;border-radius:99px;padding:4px 10px;font-size:.82rem;color:var(--navy)}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px}
+.hidden{display:none}
+@media (max-width:480px){header h1{font-size:1.15rem}.question{font-size:1rem}}
+</style>
+</head>
+<body>
+<header>
+  <h1>⚓ Réussir son permis bateau côtier</h1>
+  <p>Code du permis plaisance option côtière · 40 questions · 5 fautes maximum</p>
+</header>
+<nav id="nav">
+  <button data-view="home" class="active">Accueil</button>
+  <button data-view="cours">Cours</button>
+  <button data-view="train">Entraînement</button>
+  <button data-view="exam">Examen blanc</button>
+  <button data-view="errors">Mes erreurs</button>
+</nav>
+<main id="app"></main>
+<footer>Outil de révision personnel. En cas de doute, la référence reste le cours officiel de ton bateau-école (RIPAM, balisage AISM région A, division 240).</footer>
+
+<script>
+/* =========================================================
+   BANQUE DE QUESTIONS
+   Format : [thème, question, [bonne réponse, faux1, faux2, faux3], explication, image?]
+   La bonne réponse est TOUJOURS la première ; l'ordre est mélangé à l'affichage.
+   ========================================================= */
+const THEMES = {
+  bal:  {name:"Balisage", icon:"🟥🟩"},
+  feux: {name:"Feux et marques des navires", icon:"💡"},
+  barre:{name:"Règles de barre et de route", icon:"🧭"},
+  son:  {name:"Signaux sonores et de détresse", icon:"📢"},
+  vhf:  {name:"VHF et secours", icon:"📻"},
+  regl: {name:"Réglementation", icon:"📜"},
+  secu: {name:"Sécurité et armement", icon:"🦺"},
+  meteo:{name:"Météo", icon:"🌬️"},
+  maree:{name:"Marée et carte", icon:"🌊"},
+  env:  {name:"Environnement et vocabulaire", icon:"🐬"}
+};
+
+const Q = [
+/* ---------------- BALISAGE ---------------- */
+["bal","En entrant au port (en venant du large, région A), cette marque doit être laissée :",["À bâbord (à gauche)","À tribord (à droite)","Indifféremment d'un côté ou de l'autre","À grande distance, tout autour"],"Marque latérale rouge, voyant cylindrique : c'est une marque bâbord. En venant du large, on la laisse à bâbord.","babord"],
+["bal","En entrant au port (en venant du large, région A), cette marque doit être laissée :",["À tribord (à droite)","À bâbord (à gauche)","Indifféremment d'un côté ou de l'autre","À grande distance, tout autour"],"Marque latérale verte, voyant conique pointe en haut : c'est une marque tribord. En venant du large, on la laisse à tribord.","tribord"],
+["bal","En SORTANT du port (vers le large), une marque latérale verte doit être laissée :",["À bâbord","À tribord","Indifféremment","Elle ne concerne que les navires entrants"],"Le sens conventionnel du balisage va du large vers le port. En sortant, tout s'inverse : la verte (tribord) se laisse à bâbord."],
+["bal","Le sens conventionnel du balisage latéral est, en principe :",["Du large vers la terre (en entrant au port)","De la terre vers le large","Du nord vers le sud","D'est en ouest"],"Les marques latérales sont placées en considérant un navire qui vient du large et entre au port."],
+["bal","La France métropolitaine applique le balisage de la région AISM :",["A","B","C","D"],"La France est en région A : rouge à bâbord, vert à tribord en venant du large. La région B (Amériques, Japon, Corée, Philippines) inverse les couleurs."],
+["bal","De nuit, une marque latérale bâbord (région A) porte un feu :",["Rouge","Vert","Blanc","Jaune"],"Marque bâbord = rouge, de jour comme de nuit."],
+["bal","De nuit, une marque latérale tribord (région A) porte un feu :",["Vert","Rouge","Blanc","Jaune"],"Marque tribord = vert, de jour comme de nuit."],
+["bal","Le voyant d'une marque latérale tribord (région A) a la forme :",["D'un cône pointe en haut","D'un cylindre","D'une sphère","D'une croix en X"],"Tribord : vert, cône pointe en haut. Bâbord : rouge, cylindre."],
+["bal","Le voyant d'une marque latérale bâbord (région A) a la forme :",["D'un cylindre","D'un cône pointe en haut","D'un cône pointe en bas","De deux sphères"],"Bâbord : rouge, cylindre."],
+["bal","Les marques latérales bâbord sont en général numérotées avec des numéros :",["Pairs","Impairs","Commençant par la lettre B","Elles ne sont jamais numérotées"],"La numérotation part du large : numéros pairs à bâbord (rouges), impairs à tribord (verts)."],
+["bal","Un feu de marque latérale au rythme « 2 + 1 » (2 éclats + 1 éclat) indique :",["Une bifurcation : marque de chenal préféré","Une cardinale Est","Un danger isolé","Une marque d'eaux saines"],"Le rythme 2+1 est réservé aux marques latérales modifiées, qui signalent une bifurcation et le chenal préféré."],
+["bal","Cette marque est une cardinale :",["Nord","Sud","Est","Ouest"],"Deux cônes pointes en haut, noir en haut et jaune en bas : cardinale Nord.","N"],
+["bal","Cette marque est une cardinale :",["Sud","Nord","Est","Ouest"],"Deux cônes pointes en bas, jaune en haut et noir en bas : cardinale Sud.","S"],
+["bal","Cette marque est une cardinale :",["Est","Ouest","Nord","Sud"],"Cônes opposés par la base (pointes vers l'extérieur), noir-jaune-noir : cardinale Est.","E"],
+["bal","Cette marque est une cardinale :",["Ouest","Est","Nord","Sud"],"Cônes opposés par la pointe (forme de sablier), jaune-noir-jaune : cardinale Ouest.","O"],
+["bal","Une cardinale Nord indique que les eaux saines (où passer) se trouvent :",["Au nord de la marque","Au sud de la marque","À l'est de la marque","Tout autour de la marque"],"Une cardinale porte le nom du côté où il faut passer : cardinale Nord → passer au nord."],
+["bal","Vous apercevez une cardinale Ouest. Pour être en sécurité, vous passez :",["À l'ouest de la marque","À l'est de la marque","Au nord de la marque","Au sud de la marque"],"On passe du côté indiqué par le nom de la cardinale : à l'ouest."],
+["bal","Une cardinale Sud est placée :",["Au sud du danger","Au nord du danger","Sur le danger lui-même","À l'est du danger"],"La cardinale Sud est au sud du danger : on passe au sud d'elle."],
+["bal","Le voyant d'une cardinale Sud est composé de :",["Deux cônes noirs pointes en bas","Deux cônes noirs pointes en haut","Deux cônes opposés par la base","Deux cônes opposés par la pointe"],"Sud : les deux pointes vers le bas (vers le sud sur une carte)."],
+["bal","Le voyant d'une cardinale Ouest est composé de :",["Deux cônes noirs opposés par la pointe","Deux cônes noirs opposés par la base","Deux cônes pointes en haut","Deux cônes pointes en bas"],"Ouest : pointes l'une vers l'autre, en forme de sablier (ou de « W » couché)."],
+["bal","Les couleurs d'une cardinale Est sont :",["Noir, jaune, noir (bandes horizontales)","Jaune, noir, jaune (bandes horizontales)","Noir en haut, jaune en bas","Jaune en haut, noir en bas"],"Les pointes des cônes indiquent où est le noir. Est : pointes vers le haut et vers le bas → noir en haut et en bas."],
+["bal","Les couleurs d'une cardinale Ouest sont :",["Jaune, noir, jaune (bandes horizontales)","Noir, jaune, noir (bandes horizontales)","Noir en haut, jaune en bas","Jaune en haut, noir en bas"],"Ouest : pointes vers le milieu → noir au milieu."],
+["bal","Les couleurs d'une cardinale Nord sont :",["Noir en haut, jaune en bas","Jaune en haut, noir en bas","Noir, jaune, noir","Jaune, noir, jaune"],"Nord : pointes vers le haut → noir en haut."],
+["bal","De nuit, le feu d'une marque cardinale est toujours :",["Blanc","Rouge","Vert","Jaune"],"Toutes les cardinales ont un feu blanc, scintillant (rapide ou normal)."],
+["bal","Un feu blanc scintillant groupé par 3 identifie une cardinale :",["Est","Ouest","Nord","Sud"],"Pense au cadran d'une montre : Est = 3 heures → 3 scintillements."],
+["bal","Un feu blanc scintillant groupé par 9 identifie une cardinale :",["Ouest","Est","Sud","Nord"],"Ouest = 9 heures sur le cadran → 9 scintillements."],
+["bal","Un feu blanc de 6 scintillements suivis d'un éclat long identifie une cardinale :",["Sud","Nord","Est","Ouest"],"Sud = 6 heures → 6 scintillements + 1 éclat long (pour ne pas confondre avec l'Est ou l'Ouest)."],
+["bal","Un feu blanc scintillant continu (sans interruption) identifie une cardinale :",["Nord","Sud","Est","Ouest"],"Nord = midi : scintillement continu."],
+["bal","Cette marque signale :",["Un danger isolé de faible étendue, entouré d'eaux saines","Des eaux saines tout autour","Une zone spéciale (baignade, travaux…)","Un danger nouveau non encore cartographié"],"Noire à bandes rouges horizontales, voyant de deux sphères noires : marque de danger isolé. On ne passe pas trop près.","danger"],
+["bal","De nuit, une marque de danger isolé montre un feu :",["Blanc, 2 éclats groupés","Blanc scintillant continu","Jaune","Blanc isophase"],"Danger isolé : feu blanc à 2 éclats groupés (pense aux 2 sphères du voyant)."],
+["bal","Cette marque indique :",["Des eaux saines tout autour (milieu de chenal, atterrissage)","Un danger isolé","Une zone de baignade","Une cardinale Sud"],"Bandes verticales rouges et blanches, voyant sphère rouge : marque d'eaux saines.","saine"],
+["bal","De nuit, une marque d'eaux saines montre un feu :",["Blanc isophase, à occultations, à 1 éclat long, ou Morse « A »","Rouge au rythme 2+1","Blanc à 2 éclats groupés","Jaune"],"Eaux saines : feu blanc, avec un rythme isophase, à occultations, à un éclat long ou Morse A."],
+["bal","Cette marque jaune surmontée d'une croix en X est :",["Une marque spéciale (zone ou configuration particulière)","Une marque de danger nouveau","Une cardinale","Une marque d'eaux saines"],"Marque jaune, voyant en X jaune : marque spéciale (zone de baignade, câble, zone militaire, etc.).","speciale"],
+["bal","De nuit, une marque spéciale montre un feu :",["Jaune","Blanc","Rouge","Bleu et jaune alternés"],"Marque spéciale : feu jaune."],
+["bal","Cette marque (bandes verticales bleues et jaunes) signale :",["Un danger nouveau, pas encore porté sur les documents nautiques","Une zone de baignade","Des eaux saines","Une zone de mouillage"],"Marque de danger nouveau (par exemple une épave récente) : bandes verticales bleues et jaunes, voyant en croix jaune droite (+).","nouveau"],
+["bal","Le feu d'une marque de danger nouveau est :",["Alterné bleu et jaune","Blanc scintillant","Rouge fixe","Jaune fixe"],"Danger nouveau : feu alternativement bleu et jaune."],
+["bal","Une zone de baignade est généralement délimitée par :",["Des bouées jaunes","Des bouées rouges","Des bouées vertes","Des cardinales"],"Les zones réservées à la baignade sont matérialisées par des bouées jaunes (marques spéciales)."],
+["bal","Un feu « à éclats » est un feu dont :",["La durée de lumière est plus courte que la durée d'obscurité","La durée de lumière est plus longue que la durée d'obscurité","Les durées de lumière et d'obscurité sont égales","La lumière ne s'éteint jamais"],"Éclats : lumière courte, obscurité longue."],
+["bal","Un feu « à occultations » est un feu dont :",["La durée de lumière est plus longue que la durée d'obscurité","La durée de lumière est plus courte que la durée d'obscurité","Les durées de lumière et d'obscurité sont égales","La couleur change à chaque période"],"Occultations : le feu est surtout allumé, il « s'éteint » brièvement."],
+["bal","Un feu « isophase » est un feu dont :",["Les durées de lumière et d'obscurité sont égales","La durée de lumière est plus longue que l'obscurité","La durée de lumière est plus courte que l'obscurité","La lumière est fixe"],"Iso = égal : autant de lumière que d'obscurité."],
+
+/* ---------------- FEUX ET MARQUES ---------------- */
+["feux","Le feu de côté tribord d'un navire est :",["Vert","Rouge","Blanc","Jaune"],"Tribord = vert, bâbord = rouge."],
+["feux","Le feu de côté bâbord d'un navire est :",["Rouge","Vert","Blanc","Jaune"],"Bâbord = rouge."],
+["feux","Chaque feu de côté éclaire un secteur de :",["112,5°","135°","225°","360°"],"Les feux de côté couvrent 112,5° de l'avant jusqu'à 22,5° sur l'arrière du travers."],
+["feux","Le feu de poupe d'un navire est :",["Blanc, visible sur un secteur de 135° vers l'arrière","Blanc, visible sur 225° vers l'avant","Rouge, visible sur 112,5°","Jaune, visible sur 135°"],"Feu de poupe : blanc, 135° vers l'arrière."],
+["feux","Le feu de tête de mât d'un navire à moteur est :",["Blanc, visible sur un secteur de 225° vers l'avant","Blanc, visible sur 135° vers l'arrière","Blanc, visible sur tout l'horizon","Rouge, visible sur 225°"],"Feu de tête de mât : blanc, 225° vers l'avant. Avec le feu de poupe (135°), on couvre les 360°."],
+["feux","De nuit, vous voyez un feu blanc au-dessus d'un feu vert et d'un feu rouge visibles ensemble. Il s'agit :",["D'un navire à moteur qui vient droit sur vous","D'un voilier qui vient droit sur vous","D'un navire au mouillage","D'un navire que vous voyez par l'arrière"],"Rouge + vert ensemble = navire vu de face. Le feu blanc de tête de mât indique un navire à moteur."],
+["feux","De nuit, vous voyez un feu vert et un feu rouge ensemble, sans aucun feu blanc. Il s'agit :",["D'un voilier sous voiles qui vient droit sur vous","D'un navire à moteur qui vient droit sur vous","D'un navire au mouillage","D'un navire en pêche"],"Un voilier sous voiles n'a pas de feu de tête de mât blanc : on ne voit que ses feux de côté."],
+["feux","Un feu tricolore (rouge, vert, blanc) en tête de mât est montré par :",["Un voilier de moins de 20 m sous voiles","Un navire à moteur de moins de 12 m","Un navire au mouillage","Un bateau pilote"],"Un voilier de moins de 20 m peut regrouper ses feux de côté et de poupe dans un feu tricolore en tête de mât."],
+["feux","De nuit, vous voyez un feu vert surmonté d'un feu blanc. Le navire à moteur :",["Vous présente son côté tribord","Vous présente son côté bâbord","S'éloigne de vous, vu par l'arrière","Est au mouillage"],"Vert = côté tribord du navire. Vous êtes donc sur son tribord."],
+["feux","Un navire à moteur de moins de 12 m peut remplacer ses feux de tête de mât et de poupe par :",["Un feu blanc visible sur tout l'horizon","Un feu jaune clignotant","Deux feux rouges superposés","Rien du tout"],"Moins de 12 m : un feu blanc visible sur tout l'horizon, en plus des feux de côté."],
+["feux","Deux feux blancs de tête de mât (celui de l'arrière plus haut) indiquent :",["Un navire à moteur de 50 m ou plus","Un navire au mouillage","Un chalutier","Un voilier au moteur"],"Au-delà de 50 m, un navire à moteur doit montrer deux feux de tête de mât."],
+["feux","De nuit, un navire de moins de 50 m au mouillage montre :",["Un feu blanc visible sur tout l'horizon","Deux feux rouges superposés","Ses feux de côté uniquement","Un feu jaune"],"Mouillage (moins de 50 m) : un feu blanc visible sur tout l'horizon."],
+["feux","De jour, un navire au mouillage montre :",["Une boule noire","Deux boules noires","Un cône pointe en bas","Un cylindre noir"],"Mouillage : une boule noire à l'avant."],
+["feux","Deux feux rouges superposés, visibles sur tout l'horizon, indiquent un navire :",["Non maître de sa manœuvre","À capacité de manœuvre restreinte","En train de chaluter","Handicapé par son tirant d'eau"],"Non maître de sa manœuvre (panne, avarie de barre…) : deux feux rouges superposés."],
+["feux","De jour, deux boules noires superposées indiquent un navire :",["Non maître de sa manœuvre","Au mouillage","Échoué","En pêche"],"Deux boules = non maître de sa manœuvre (de nuit : deux feux rouges)."],
+["feux","Trois feux superposés rouge-blanc-rouge indiquent un navire :",["À capacité de manœuvre restreinte","Non maître de sa manœuvre","Handicapé par son tirant d'eau","Pilote"],"Capacité de manœuvre restreinte (travaux, dragage, plongée…) : rouge-blanc-rouge."],
+["feux","De jour, les marques boule-losange-boule superposées indiquent un navire :",["À capacité de manœuvre restreinte","Échoué","En pêche","Au mouillage"],"Boule-losange-boule = capacité de manœuvre restreinte."],
+["feux","Trois feux rouges superposés indiquent un navire :",["Handicapé par son tirant d'eau","Non maître de sa manœuvre","Échoué","En pêche"],"Handicapé par son tirant d'eau : trois feux rouges superposés ; de jour, un cylindre."],
+["feux","De jour, un cylindre noir indique un navire :",["Handicapé par son tirant d'eau","Au mouillage","Non maître de sa manœuvre","Remorqué"],"Cylindre = handicapé par son tirant d'eau."],
+["feux","Un feu vert au-dessus d'un feu blanc (visibles sur tout l'horizon) indique :",["Un chalutier en pêche","Un navire en pêche autre qu'un chalutier","Un bateau pilote","Un navire au mouillage"],"« Vert sur blanc : chalutier »."],
+["feux","Un feu rouge au-dessus d'un feu blanc (visibles sur tout l'horizon) indique :",["Un navire en pêche autre qu'un chalutier","Un chalutier","Un bateau pilote","Un navire échoué"],"« Rouge sur blanc : pêcheur » (filets, lignes…)."],
+["feux","Un feu blanc au-dessus d'un feu rouge (visibles sur tout l'horizon) indique :",["Un bateau pilote en service","Un chalutier","Un navire en pêche","Un navire non maître de sa manœuvre"],"« Blanc sur rouge : pilote »."],
+["feux","De jour, deux cônes noirs réunis par la pointe (en sablier) indiquent :",["Un navire en pêche","Un navire au mouillage","Un voilier au moteur","Un navire remorqué"],"Navire en pêche : deux cônes réunis par la pointe."],
+["feux","De jour, trois boules noires superposées indiquent un navire :",["Échoué","Non maître de sa manœuvre","Au mouillage","À capacité de manœuvre restreinte"],"Échoué : trois boules (de nuit : feu(x) de mouillage + deux feux rouges)."],
+["feux","De jour, un voilier qui avance à la fois à la voile et au moteur doit montrer :",["Un cône pointe en bas","Une boule noire","Un cône pointe en haut","Un cylindre"],"Voilier au moteur : cône pointe en bas, car il devient un navire à moteur pour les règles de barre."],
+["feux","Un feu jaune placé au-dessus du feu de poupe indique un navire :",["Qui en remorque un autre","Au mouillage","En pêche","Pilote"],"Feu de remorquage : jaune, au-dessus du feu de poupe."],
+["feux","Le pavillon « A » (blanc et bleu, à queue d'aronde) signifie :",["Plongeurs en immersion : s'écarter et ralentir","Je demande un pilote","J'ai un homme à la mer","Je suis en détresse"],"Pavillon A du code international : « J'ai un scaphandrier en plongée ; tenez-vous à distance et avancez lentement »."],
+
+/* ---------------- RÈGLES DE BARRE ---------------- */
+["barre","Deux navires à moteur font route l'un vers l'autre, face à face. Ils doivent :",["Venir chacun sur tribord","Venir chacun sur bâbord","Le plus petit s'écarte","Le plus rapide s'écarte"],"Route opposée : chacun vient sur tribord et ils se croisent bâbord sur bâbord."],
+["barre","Deux navires à moteur ont des routes qui se croisent. Celui qui doit s'écarter est :",["Celui qui voit l'autre sur son tribord","Celui qui voit l'autre sur son bâbord","Le plus petit","Le plus rapide"],"Priorité à droite : on s'écarte du navire qui vient de tribord."],
+["barre","Vous êtes au moteur. De nuit, un navire à moteur croise votre route et vous voyez son feu rouge. Vous devez :",["Vous écarter de sa route","Maintenir votre cap et votre vitesse","Accélérer pour passer devant","Émettre 5 sons brefs et garder votre route"],"Vous voyez son côté bâbord : il vient de votre tribord, c'est donc à vous de vous écarter (en évitant de passer sur son avant)."],
+["barre","Vous êtes au moteur. De nuit, un navire à moteur croise votre route et vous voyez son feu vert. En principe :",["C'est lui qui doit s'écarter : vous maintenez cap et vitesse en restant vigilant","Vous devez vous écarter","Vous devez stopper immédiatement","Vous devez venir sur bâbord"],"Il vous voit sur son tribord : c'est à lui de manœuvrer. Vous restez prêt à agir s'il ne le fait pas."],
+["barre","Un navire en rattrape un autre. Qui doit s'écarter ?",["Le navire rattrapant, quel que soit son type","Le navire rattrapé","Toujours le navire à moteur","Le plus gros des deux"],"Le rattrapant s'écarte toujours, même si c'est un voilier qui rattrape un bateau à moteur."],
+["barre","Un navire est considéré comme « rattrapant » lorsqu'il s'approche d'un autre :",["Par plus de 22,5° sur l'arrière de son travers (dans le secteur de son feu de poupe)","Par son avant","Par son travers tribord","À une vitesse supérieure à 10 nœuds"],"Rattrapant : arrive dans le secteur du feu de poupe de l'autre (de nuit, il ne voit que ce feu blanc)."],
+["barre","Un navire à moteur rencontre un voilier sous voiles (pas de rattrapage). Qui s'écarte ?",["Le navire à moteur","Le voilier","Celui qui a l'autre sur tribord","Le plus petit"],"Le moteur s'écarte du voilier sous voiles, sauf s'il est rattrapé par lui ou dans certains cas particuliers (chenal étroit, rail…)."],
+["barre","Deux voiliers reçoivent le vent de bords différents. Celui qui doit s'écarter est :",["Celui qui reçoit le vent par bâbord (bâbord amures)","Celui qui reçoit le vent par tribord (tribord amures)","Le plus rapide","Celui qui est sous le vent"],"Amures différentes : bâbord amures s'écarte de tribord amures."],
+["barre","Deux voiliers reçoivent le vent du même bord. Celui qui doit s'écarter est :",["Celui qui est au vent","Celui qui est sous le vent","Le plus petit","Le plus lent"],"Mêmes amures : le voilier au vent s'écarte de celui qui est sous le vent."],
+["barre","Un voilier sous voiles rencontre un chalutier en pêche. Qui s'écarte ?",["Le voilier","Le chalutier","Celui qui a l'autre sur bâbord","Personne, chacun garde sa route"],"Un navire en pêche (engins de pêche à l'eau) est privilégié par rapport au voilier et au navire à moteur."],
+["barre","Un navire à moteur doit s'écarter d'un navire non maître de sa manœuvre :",["Oui, toujours","Non, jamais","Seulement de nuit","Seulement s'il vient de tribord"],"Un navire non maître de sa manœuvre ne peut pas manœuvrer : tous les autres doivent s'en écarter."],
+["barre","Le navire qui doit s'écarter doit manœuvrer :",["Tôt et franchement, de manière bien visible pour l'autre","Au dernier moment","Par petites corrections successives","En accélérant"],"Une manœuvre franche et précoce permet à l'autre navire de comprendre vos intentions."],
+["barre","Le navire privilégié (qui n'a pas à s'écarter) doit :",["Maintenir son cap et sa vitesse, mais manœuvrer si l'autre ne le fait pas","Accélérer pour passer plus vite","Changer de cap dès qu'il voit l'autre","Stopper systématiquement"],"Le privilégié garde cap et vitesse, mais il doit agir s'il devient évident que l'autre ne manœuvre pas."],
+["barre","Un risque d'abordage existe lorsque :",["Le relèvement de l'autre navire ne change pas et la distance diminue","Le relèvement de l'autre navire change rapidement","L'autre navire s'éloigne","L'autre navire est au mouillage loin de vous"],"Relèvement constant + distance qui diminue = collision probable."],
+["barre","Dans un chenal étroit, un navire de moins de 20 m ou un voilier :",["Ne doit pas gêner les navires qui ne peuvent naviguer qu'à l'intérieur du chenal","Est toujours prioritaire","Doit naviguer au milieu du chenal","Peut mouiller dans le chenal"],"Les petits navires et les voiliers ne doivent pas gêner les gros navires obligés de suivre le chenal."],
+["barre","Dans un chenal, on navigue :",["Aussi près que possible de la limite du chenal qui est sur son tribord","Au milieu du chenal","Sur le côté bâbord du chenal","Où l'on veut"],"Comme sur la route : on tient sa droite."],
+["barre","Pour traverser un dispositif de séparation du trafic (rail), il faut :",["Suivre un cap aussi perpendiculaire que possible au sens du trafic","Le traverser en diagonale","Le longer à l'intérieur","Le traverser au ralenti en zigzag"],"On coupe le rail au plus court, cap perpendiculaire au trafic, pour y rester le moins longtemps possible."],
+["barre","Un voilier qui avance uniquement au moteur (voiles affalées) est considéré comme :",["Un navire à moteur","Un voilier","Un navire non maître de sa manœuvre","Un navire privilégié"],"Dès qu'il utilise son moteur pour avancer, un voilier applique les règles des navires à moteur."],
+["barre","La « vitesse de sécurité » est :",["Une vitesse qui permet d'éviter un abordage et de s'arrêter sur une distance adaptée aux circonstances","Toujours 5 nœuds","La vitesse maximale du bateau","Toujours 10 nœuds"],"Elle dépend de la visibilité, du trafic, de l'état de la mer, de la manœuvrabilité du bateau…"],
+
+/* ---------------- SIGNAUX SONORES / DÉTRESSE ---------------- */
+["son","Un son bref signifie :",["Je viens sur tribord","Je viens sur bâbord","Je bats en arrière","Je ne comprends pas vos intentions"],"1 son bref = je viens sur tribord ; 2 sons brefs = je viens sur bâbord."],
+["son","Deux sons brefs signifient :",["Je viens sur bâbord","Je viens sur tribord","Je bats en arrière","Je suis au mouillage"],"2 sons brefs = je viens sur bâbord."],
+["son","Trois sons brefs signifient :",["Je bats en arrière (machine arrière)","Je viens sur tribord","Je viens sur bâbord","Je suis en détresse"],"3 sons brefs = je fais machine arrière."],
+["son","Au moins cinq sons brefs et rapides signifient :",["Je ne comprends pas vos intentions / je doute que vous manœuvriez suffisamment","Je viens sur bâbord","Je suis en détresse","Je vais vous rattraper"],"5 sons brefs (ou plus) = signal de doute."],
+["son","Un son bref dure environ :",["1 seconde","4 à 6 secondes","10 secondes","Une demi-minute"],"Son bref : environ 1 seconde. Son prolongé : 4 à 6 secondes."],
+["son","Un son prolongé dure environ :",["4 à 6 secondes","1 seconde","15 secondes","1 minute"],"Son prolongé : de 4 à 6 secondes."],
+["son","Dans un chenal, deux sons prolongés suivis d'un son bref signifient :",["Je compte vous rattraper sur votre tribord","Je compte vous rattraper sur votre bâbord","Je viens sur bâbord","Je suis échoué"],"2 prolongés + 1 bref = je vais vous dépasser par votre tribord (2 prolongés + 2 brefs = par bâbord)."],
+["son","Par visibilité réduite, un navire à moteur faisant route (avec de l'erre) émet :",["Un son prolongé, au moins toutes les 2 minutes","Deux sons prolongés, au moins toutes les 2 minutes","Un son prolongé suivi de deux brefs","Cinq sons brefs toutes les minutes"],"Moteur faisant route : 1 son prolongé au moins toutes les 2 minutes."],
+["son","Par visibilité réduite, un navire à moteur en route mais stoppé (sans erre) émet :",["Deux sons prolongés, au moins toutes les 2 minutes","Un son prolongé, au moins toutes les 2 minutes","Trois sons brefs","Rien"],"Stoppé et sans erre : 2 sons prolongés au moins toutes les 2 minutes."],
+["son","Par visibilité réduite, un voilier sous voiles émet :",["Un son prolongé suivi de deux sons brefs, au moins toutes les 2 minutes","Un son prolongé toutes les 2 minutes","Deux sons prolongés toutes les 2 minutes","Rien, il est prioritaire"],"Voilier (comme pêche, non maître de sa manœuvre, capacité restreinte, remorqueur) : 1 prolongé + 2 brefs."],
+["son","Par visibilité réduite, un navire de moins de 100 m au mouillage :",["Sonne rapidement la cloche pendant environ 5 secondes, à intervalles d'une minute au plus","Émet un son prolongé toutes les 2 minutes","Émet deux sons prolongés","N'émet aucun signal"],"Au mouillage : cloche sonnée rapidement environ 5 secondes, au moins toutes les minutes."],
+["son","Lequel de ces signaux est un signal de détresse ?",["Des feux rouges à main","Un feu blanc fixe","Le pavillon national","Un son bref"],"Les feux rouges à main (et fusées rouges) sont des signaux de détresse."],
+["son","Un fumigène orange signifie :",["Je suis en détresse","Je suis au mouillage","Je pêche","Je viens sur tribord"],"Le signal fumigène orange est un signal de détresse visible de jour."],
+["son","Lever et abaisser lentement et de façon répétée les bras tendus de chaque côté signifie :",["Je suis en détresse, j'ai besoin d'aide","Tout va bien","Je vais vous dépasser","Je laisse passer"],"C'est un signal de détresse reconnu."],
+["son","Pour utiliser un feu rouge à main, on le tient :",["Bras tendu, sous le vent, vers l'extérieur du bateau","Au-dessus de sa tête, face au vent","Au fond du bateau","Dans l'eau"],"Sous le vent et à l'extérieur, pour éviter fumée et projections incandescentes sur soi et le bateau."],
+
+/* ---------------- VHF / SECOURS ---------------- */
+["vhf","Le canal VHF de veille, de détresse et d'appel est le :",["16","6","9","72"],"Canal 16 : appel, détresse, urgence, sécurité."],
+["vhf","Le message « MAYDAY » signifie :",["Détresse : danger grave et imminent, demande d'assistance immédiate","Urgence sans danger imminent","Message de sécurité (météo, navigation)","Simple appel à un autre navire"],"MAYDAY = détresse."],
+["vhf","Le message « PAN PAN » signifie :",["Urgence : la sécurité d'un navire ou d'une personne est en jeu, sans danger imminent","Détresse avec danger grave et imminent","Avis de sécurité météo","Fin de communication"],"PAN PAN = urgence (par exemple : avarie moteur, blessé à bord sans danger de mort immédiat)."],
+["vhf","Le message « SÉCURITÉ » annonce :",["Un message concernant la sécurité de la navigation ou un avis météo important","Une détresse","Une urgence médicale","Un appel personnel"],"SÉCURITÉ = information de sécurité (avis de coup de vent, objet dérivant, etc.)."],
+["vhf","Le mot MAYDAY est prononcé au début de l'appel de détresse :",["3 fois","1 fois","2 fois","5 fois"],"MAYDAY MAYDAY MAYDAY, ici (nom du navire ×3)…"],
+["vhf","Dans un message de détresse, on donne en priorité :",["Le nom du navire, sa position et la nature de la détresse","Le nom du propriétaire et son adresse","La marque du moteur","La météo prévue"],"Identité, position, nature de la détresse, aide demandée, nombre de personnes à bord."],
+["vhf","Les opérations de recherche et de sauvetage en mer sont coordonnées par :",["Les CROSS","La capitainerie du port","Météo-France","Les douanes"],"Les CROSS (Centres régionaux opérationnels de surveillance et de sauvetage) coordonnent le sauvetage, avec notamment les moyens de la SNSM."],
+["vhf","Le numéro d'urgence pour joindre les secours en mer depuis un téléphone est le :",["196","17","112 uniquement","3615"],"Le 196 permet de joindre directement un CROSS depuis un téléphone. La VHF canal 16 reste le moyen privilégié en mer."],
+["vhf","Le bouton de détresse ASN (DSC) d'une VHF permet :",["D'envoyer automatiquement une alerte de détresse avec l'identité (MMSI) et, si un GPS est connecté, la position","D'écouter la météo","De passer automatiquement sur le canal 72","D'appeler un téléphone portable"],"L'ASN envoie une alerte numérique de détresse ; on la complète ensuite par un message vocal sur le 16."],
+["vhf","Les bulletins météo diffusés en VHF par les CROSS sont annoncés :",["Sur le canal 16, puis diffusés sur un canal de travail","Uniquement sur le canal 72","Uniquement par SMS","Jamais en VHF"],"Les CROSS annoncent la diffusion sur le 16 et indiquent le canal où écouter le bulletin."],
+["vhf","Un équipier tombe à l'eau. Le premier réflexe est de :",["Crier « un homme à la mer », lancer la bouée et ne jamais quitter la personne des yeux","Accélérer pour faire demi-tour au plus vite","Plonger immédiatement pour le rejoindre","Appeler son assurance"],"Alerter, baliser (bouée), garder le contact visuel en désignant la personne du bras."],
+["vhf","Pour récupérer une personne à l'eau avec un bateau à moteur, on doit :",["Débrayer (moteur au point mort) à proximité pour ne pas la blesser avec l'hélice","Arriver à pleine vitesse","Passer au-dessus d'elle","Laisser le moteur embrayé en marche avant"],"L'hélice est le danger principal : on débraye en approchant de la personne."],
+["vhf","Une personne repêchée est en hypothermie. Il faut :",["La mettre à l'abri, la sécher, la couvrir et la réchauffer progressivement","La frictionner vigoureusement","Lui donner de l'alcool","La laisser au vent pour qu'elle sèche"],"Réchauffement progressif ; pas d'alcool, pas de friction énergique. Prévenir les secours."],
+
+/* ---------------- RÉGLEMENTATION ---------------- */
+["regl","Le permis côtier est obligatoire pour conduire un bateau de plaisance à moteur d'une puissance supérieure à :",["6 CV (4,5 kW)","2 CV","20 CV","50 CV"],"Au-delà de 6 CV (4,5 kW), le permis plaisance est obligatoire."],
+["regl","Le permis côtier autorise la navigation jusqu'à :",["6 milles d'un abri","2 milles d'un abri","20 milles des côtes","Sans limite de distance"],"Côtier : jusqu'à 6 milles d'un abri. Au-delà : extension hauturière."],
+["regl","Le permis côtier permet de naviguer :",["De jour comme de nuit","De jour uniquement","De nuit uniquement avec un équipier titulaire","Seulement par beau temps"],"Il n'y a pas de restriction jour/nuit pour le permis côtier."],
+["regl","L'âge minimum pour obtenir le permis côtier est :",["16 ans","14 ans","18 ans","21 ans"],"16 ans minimum."],
+["regl","L'épreuve théorique (le code) du permis côtier comporte :",["40 questions, 5 fautes maximum","30 questions, 5 fautes maximum","40 questions, 10 fautes maximum","20 questions, aucune faute"],"Depuis juin 2022 : 40 questions sur tablette, 5 erreurs au maximum."],
+["regl","Un « abri » est :",["Un lieu de la côte où un bateau et son équipage peuvent se mettre en sécurité et d'où ils peuvent repartir","N'importe quelle plage","Uniquement un port de plaisance","Une zone de mouillage en pleine mer"],"Définition de la division 240 : endroit de la côte où l'on peut se mettre à l'abri et repartir en sécurité."],
+["regl","Dans la bande littorale des 300 mètres, la vitesse est en général limitée à :",["5 nœuds","10 nœuds","3 nœuds","15 nœuds"],"Sauf chenal ou réglementation locale particulière, 5 nœuds dans les 300 m."],
+["regl","Un mille marin mesure :",["1 852 mètres","1 000 mètres","1 609 mètres","2 000 mètres"],"1 mille nautique = 1 852 m (le mille terrestre anglais fait 1 609 m)."],
+["regl","Un nœud correspond à :",["1 mille marin par heure","1 kilomètre par heure","1 mètre par seconde","10 km/h"],"Le nœud est une vitesse : 1 mille par heure (environ 1,85 km/h)."],
+["regl","La conduite d'un bateau sous l'emprise de l'alcool est interdite au-delà d'un taux de :",["0,5 g par litre de sang","0,8 g par litre de sang","1 g par litre de sang","Il n'y a pas de limite en mer"],"Comme sur la route : 0,5 g/l de sang (0,25 mg/l d'air expiré)."],
+["regl","Le chef de bord est responsable :",["De la sécurité du navire et des personnes embarquées","Uniquement du moteur","Uniquement de la navigation de nuit","De rien, chacun est responsable de soi"],"Le chef de bord veille à la sécurité de tous : matériel, météo, consignes, gilets…"],
+
+/* ---------------- SÉCURITÉ / ARMEMENT ---------------- */
+["secu","L'armement « basique » concerne une navigation jusqu'à :",["2 milles d'un abri","6 milles d'un abri","300 mètres du rivage","60 milles d'un abri"],"Basique : moins de 2 milles d'un abri."],
+["secu","L'armement « côtier » concerne une navigation :",["De 2 à 6 milles d'un abri","Jusqu'à 2 milles d'un abri","De 6 à 60 milles d'un abri","Au-delà de 60 milles"],"Côtier : entre 2 et 6 milles d'un abri (dotation basique complétée)."],
+["secu","Combien d'équipements individuels de flottabilité (gilets) doivent être à bord ?",["Un par personne embarquée","Un pour deux personnes","Un seul pour le chef de bord","Aucun en dessous de 2 milles"],"Un équipement de flottabilité adapté pour chaque personne à bord."],
+["secu","Pour une navigation jusqu'à 6 milles d'un abri, la flottabilité minimale des gilets est de :",["100 newtons","50 newtons","150 newtons","275 newtons"],"50 N jusqu'à 2 milles, 100 N jusqu'à 6 milles, 150 N au-delà."],
+["secu","Pour une navigation jusqu'à 2 milles d'un abri, la flottabilité minimale des gilets est de :",["50 newtons","100 newtons","150 newtons","275 newtons"],"50 N suffisent jusqu'à 2 milles d'un abri."],
+["secu","Lequel de ces équipements est exigé en armement côtier, en plus de l'armement basique ?",["3 feux rouges à main","Un radeau de survie","Une balise de détresse (RLS)","Un sextant"],"Le côtier ajoute notamment : 3 feux rouges à main, bouée fer à cheval ou couronne, compas magnétique, cartes marines officielles, RIPAM et document décrivant le balisage."],
+["secu","La bouée « fer à cheval » ou « couronne » est obligatoire :",["À partir de l'armement côtier (au-delà de 2 milles d'un abri)","Dès l'armement basique","Seulement au-delà de 60 milles","Jamais, elle est facultative"],"Dispositif de repérage et d'assistance pour personne à la mer : obligatoire à partir du côtier."],
+["secu","Les cartes marines officielles de la zone sont obligatoires :",["À partir de l'armement côtier","Dès l'armement basique","Seulement en hauturier","Jamais"],"Cartes marines officielles : exigées dès le côtier."],
+["secu","Un dispositif lumineux (lampe étanche ou lampe individuelle) est obligatoire :",["Dès l'armement basique","Seulement en côtier","Seulement la nuit en hauturier","Jamais"],"Le dispositif lumineux fait partie de l'armement basique."],
+["secu","Le coupe-circuit d'un moteur hors-bord :",["Doit être attaché au pilote pour arrêter le moteur s'il tombe ou s'il est éjecté","Sert à démarrer le moteur","Ne sert qu'au port","Doit rester rangé dans un coffre"],"Le cordon relié au pilote coupe le moteur en cas de chute : le bateau ne part pas seul et l'hélice s'arrête."],
+["secu","Pendant le plein de carburant, il faut :",["Arrêter le moteur, ne pas fumer, puis aérer le compartiment moteur avant de redémarrer","Laisser tourner le moteur pour gagner du temps","Faire le plein le plus vite possible sans précaution","Garder tous les passagers dans la cabine fermée"],"Risque d'incendie et d'explosion des vapeurs d'essence."],
+["secu","Avant de partir en mer, il faut notamment :",["Consulter la météo, vérifier le carburant et le matériel, et prévenir un proche de son itinéraire","Partir sans prévenir pour ne pas inquiéter","Ne regarder la météo qu'en mer","Vérifier seulement la radio"],"Préparer sa sortie : météo, marée, carburant, matériel, équipage informé, quelqu'un à terre prévenu."],
+["secu","Un bateau de catégorie de conception C est conçu pour des conditions allant jusqu'à :",["Force 6 et des vagues de 2 m","Force 4 et des vagues de 0,30 m","Force 8 et des vagues de 4 m","Plus de force 8"],"A : plus de force 8 ; B : jusqu'à force 8 / 4 m ; C : jusqu'à force 6 / 2 m ; D : jusqu'à force 4 / 0,30 m."],
+
+/* ---------------- MÉTÉO ---------------- */
+["meteo","L'échelle de Beaufort mesure :",["La force du vent","La hauteur des marées","La pression atmosphérique","La température de l'eau"],"Beaufort : force du vent de 0 à 12 (avec un état de mer associé)."],
+["meteo","Un vent de force 7 Beaufort est appelé :",["Grand frais","Coup de vent","Vent frais","Tempête"],"6 = vent frais, 7 = grand frais, 8 = coup de vent, 9 = fort coup de vent, 10 = tempête."],
+["meteo","Un vent de force 8 Beaufort est appelé :",["Coup de vent","Grand frais","Tempête","Jolie brise"],"Force 8 = coup de vent (34 à 40 nœuds)."],
+["meteo","Un vent de force 6 Beaufort est appelé :",["Vent frais","Grand frais","Bonne brise","Coup de vent"],"Force 6 = vent frais (22 à 27 nœuds)."],
+["meteo","Un vent de force 4 Beaufort est appelé :",["Jolie brise","Petite brise","Vent frais","Grand frais"],"Force 3 = petite brise, 4 = jolie brise, 5 = bonne brise."],
+["meteo","Un vent de force 7 Beaufort souffle entre :",["28 et 33 nœuds","17 et 21 nœuds","11 et 16 nœuds","41 et 47 nœuds"],"Force 7 (grand frais) : 28 à 33 nœuds."],
+["meteo","Un « vent d'ouest » est un vent qui :",["Vient de l'ouest","Va vers l'ouest","Tourne autour de l'ouest","Souffle seulement à l'ouest de la France"],"On nomme toujours un vent par la direction d'où il vient."],
+["meteo","Un bulletin météorologique spécial (BMS) côte est émis lorsque le vent atteint ou risque d'atteindre :",["Force 7","Force 5","Force 9","Force 12"],"BMS-côte : à partir de force 7 ; BMS-large : à partir de force 8."],
+["meteo","Les bulletins météo « côte » concernent la zone située jusqu'à :",["20 milles des côtes","6 milles des côtes","2 milles des côtes","200 milles des côtes"],"Bulletin côte : jusqu'à 20 milles ; bulletin large : jusqu'à environ 200 milles."],
+["meteo","Une baisse rapide du baromètre annonce le plus souvent :",["Une dégradation du temps, avec un vent qui forcit","Une amélioration durable","Du brouillard uniquement","Rien de particulier"],"Pression qui chute vite = dépression qui approche."],
+["meteo","La pression atmosphérique normale au niveau de la mer est d'environ :",["1013 hPa","913 hPa","1113 hPa","760 hPa"],"Pression moyenne de référence : 1013 hectopascals."],
+["meteo","La brise de mer souffle :",["Le jour, de la mer vers la terre","La nuit, de la mer vers la terre","Le jour, de la terre vers la mer","Uniquement en hiver"],"Le jour, la terre se réchauffe plus vite : l'air monte et la brise vient de la mer. La nuit, c'est l'inverse (brise de terre)."],
+["meteo","Une rafale est :",["Une augmentation brève et brutale de la vitesse du vent","Le vent moyen sur une heure","Un vent de terre","Un changement de marée"],"Les rafales peuvent dépasser nettement le vent moyen annoncé."],
+["meteo","Dans l'hémisphère nord, le vent tourne autour d'une dépression :",["Dans le sens inverse des aiguilles d'une montre","Dans le sens des aiguilles d'une montre","Il ne tourne pas","Dans un sens différent chaque jour"],"Autour d'une dépression : sens inverse des aiguilles d'une montre (hémisphère nord) ; autour d'un anticyclone : sens des aiguilles d'une montre."],
+["meteo","Quand le courant de marée est opposé au vent, la mer devient :",["Plus creuse et plus dangereuse","Plus calme","Plus chaude","Plus claire"],"Vent contre courant : vagues plus courtes, plus creuses, parfois déferlantes."],
+
+/* ---------------- MARÉE ET CARTE ---------------- */
+["maree","La règle des douzièmes indique que la mer monte ou descend, heure par heure, de :",["1, 2, 3, 3, 2, 1 douzièmes du marnage","2, 2, 2, 2, 2, 2 douzièmes du marnage","3, 2, 1, 1, 2, 3 douzièmes du marnage","1, 1, 1, 1, 1, 1 douzièmes du marnage"],"Lent au début, rapide au milieu (3e et 4e heures), lent à la fin."],
+["maree","Selon la règle des douzièmes, la mer monte le plus vite pendant :",["La 3e et la 4e heure","La 1re heure","La 6e heure","La 1re et la 6e heure"],"3/12 du marnage pendant la 3e heure et 3/12 pendant la 4e heure."],
+["maree","Le marnage est :",["La différence de hauteur entre la pleine mer et la basse mer","La hauteur d'eau à pleine mer","La durée de la marée montante","La vitesse du courant de marée"],"Marnage = hauteur de pleine mer − hauteur de basse mer."],
+["maree","Avec un marnage de 6 m, de combien la mer monte-t-elle pendant la 1re heure du flot ?",["0,50 m","1 m","1,50 m","2 m"],"1/12 de 6 m = 0,50 m."],
+["maree","Avec un marnage de 6 m, de combien la mer est-elle montée au bout des 3 premières heures ?",["3 m","1,50 m","2 m","4,50 m"],"1 + 2 + 3 = 6 douzièmes, soit la moitié du marnage : 3 m."],
+["maree","Les coefficients de marée varient de :",["20 à 120","0 à 100","50 à 150","1 à 12"],"Coefficient faible (≈ 20-45) : mortes-eaux ; élevé (≈ 95-120) : très grandes vives-eaux."],
+["maree","Les marées de vives-eaux (grandes marées) se produisent :",["Autour de la nouvelle lune et de la pleine lune","Au premier et au dernier quartier de lune","Uniquement en été","Uniquement la nuit"],"Lune et Soleil alignés : leurs effets s'additionnent."],
+["maree","Les marées de mortes-eaux se produisent :",["Autour du premier et du dernier quartier de lune","À la pleine lune","À la nouvelle lune","Aux équinoxes uniquement"],"Lune et Soleil en angle droit : faible marnage."],
+["maree","Le « flot » est :",["Le courant de marée montante","Le courant de marée descendante","Le moment où la mer est haute","Une vague isolée"],"Flot = marée montante ; jusant = marée descendante."],
+["maree","Le « jusant » est :",["Le courant de marée descendante","Le courant de marée montante","Un vent de terre","Le moment de pleine mer"],"Jusant = marée descendante."],
+["maree","L'« étale » est :",["Le moment, près de la pleine ou de la basse mer, où le niveau varie très peu","Le moment où le courant est le plus fort","Une zone sans vent","Un fond rocheux"],"Étale de pleine mer ou de basse mer : le niveau est presque stable."],
+["maree","Sur nos côtes atlantiques et de la Manche, l'intervalle entre une pleine mer et la basse mer suivante est d'environ :",["6 heures","3 heures","12 heures","24 heures"],"Marée semi-diurne : environ 2 pleines mers et 2 basses mers par jour, soit environ 6 h entre PM et BM."],
+["maree","Sur une carte marine, une sonde (chiffre en mer) indique :",["La profondeur au-dessous du zéro des cartes","La hauteur d'eau à pleine mer","La hauteur d'eau actuelle","La distance à la côte"],"La sonde est mesurée sous le zéro des cartes ; il faut y ajouter la hauteur de marée."],
+["maree","La hauteur d'eau à un instant donné est égale à :",["La sonde + la hauteur de la marée à cet instant","La sonde − la hauteur de la marée","Le marnage seul","Le coefficient divisé par 10"],"Hauteur d'eau = sonde + hauteur de marée."],
+["maree","Le zéro des cartes correspond à peu près :",["Au niveau des plus basses mers","Au niveau moyen de la mer","Au niveau des plus hautes mers","Au niveau de la mer à midi"],"Le zéro des cartes est choisi très bas : on a presque toujours au moins la sonde indiquée."],
+["maree","Sur une carte marine, une sonde soulignée indique :",["Un fond découvrant : hauteur au-dessus du zéro des cartes","Une profondeur très importante","Une épave","Un mouillage interdit"],"Sonde soulignée = la roche ou le banc découvre à marée basse, de la hauteur indiquée au-dessus du zéro."],
+["maree","Sur une carte marine, 1 minute de latitude correspond à :",["1 mille marin","1 kilomètre","1 nœud","10 milles"],"Les distances se mesurent sur l'échelle des latitudes (bords gauche et droit de la carte) : 1' = 1 mille."],
+
+/* ---------------- ENVIRONNEMENT / VOCABULAIRE ---------------- */
+["env","Bâbord désigne :",["Le côté gauche du bateau, en regardant vers l'avant","Le côté droit du bateau, en regardant vers l'avant","L'arrière du bateau","L'avant du bateau"],"Astuce : « ba-TRI » → BAbord à gauche, TRIbord à droite (comme le mot « batterie »)."],
+["env","Tribord désigne :",["Le côté droit du bateau, en regardant vers l'avant","Le côté gauche du bateau, en regardant vers l'avant","L'arrière du bateau","Le dessous de la coque"],"Tribord = droite."],
+["env","La poupe est :",["L'arrière du bateau","L'avant du bateau","Le côté gauche","Le mât"],"Poupe = arrière ; proue = avant."],
+["env","Le tirant d'eau est :",["La distance entre la ligne de flottaison et le point le plus bas de la coque","La hauteur du mât","La largeur du bateau","La quantité d'eau dans les cales"],"Il faut toujours plus de hauteur d'eau que son tirant d'eau (avec une marge de sécurité)."],
+["env","Le travers d'un bateau est :",["La direction perpendiculaire à l'axe du bateau","L'avant du bateau","Le sillage","La partie immergée"],"« Par le travers » = à 90° de l'axe du bateau."],
+["env","L'« erre » d'un bateau est :",["La vitesse qu'il conserve sur son élan, sans propulsion","Sa vitesse maximale","Une erreur de cap","Le nom du sillage"],"Un bateau stoppé continue d'avancer sur son erre."],
+["env","Un voilier « tribord amures » reçoit le vent :",["Par tribord","Par bâbord","Par l'arrière exactement","Il n'a pas de vent"],"Les amures indiquent le côté d'où vient le vent."],
+["env","Le côté « au vent » d'un bateau est :",["Le côté d'où vient le vent","Le côté opposé au vent","L'arrière du bateau","Le côté du quai"],"Au vent = côté exposé ; sous le vent = côté abrité."],
+["env","Les déchets produits à bord doivent être :",["Conservés à bord et déposés à terre dans les points de collecte","Jetés à la mer au-delà de 3 milles","Brûlés sur le pont","Jetés seulement de nuit"],"On ne rejette aucun déchet en mer : tout revient au port."],
+["env","Pour protéger les herbiers (posidonies, zostères), au mouillage il faut :",["Éviter de mouiller dans les herbiers et préférer les fonds de sable ou les bouées prévues","Mouiller au milieu des herbiers, la tenue est meilleure","Laisser traîner l'ancre","Mouiller le plus près possible des plongeurs"],"L'ancre et la chaîne arrachent les herbiers, qui sont des zones de vie essentielles."],
+["env","Face à des mammifères marins (dauphins, phoques…), il faut :",["Ralentir, ne pas les poursuivre ni couper leur route, et garder ses distances","Accélérer pour les suivre","Les approcher pour les toucher","Les encercler pour les photographier"],"On évite de les déranger : vitesse réduite, pas de poursuite, distance respectée."]
+];
+
+/* =========================================================
+   DESSINS DES MARQUES (SVG)
+   ========================================================= */
+const C = {red:"#d62828", green:"#2a9d4b", yellow:"#f4c20d", black:"#1a1a1a", white:"#ffffff", blue:"#1f5fbf"};
+let svgId = 0;
+function coneUp(cy,col){return `<polygon points="50,${cy-8} 41,${cy+7} 59,${cy+7}" fill="${col}"/>`;}
+function coneDown(cy,col){return `<polygon points="41,${cy-7} 59,${cy-7} 50,${cy+8}" fill="${col}"/>`;}
+function markSVG(type,w=100){
+  const id = "clip"+(svgId++);
+  const specs = {
+    babord:{h:[C.red], top:`<rect x="42" y="30" width="16" height="16" fill="${C.red}"/>`},
+    tribord:{h:[C.green], top:coneUp(38,C.green)},
+    N:{h:[C.black,C.yellow], top:coneUp(23,C.black)+coneUp(41,C.black)},
+    S:{h:[C.yellow,C.black], top:coneDown(23,C.black)+coneDown(41,C.black)},
+    E:{h:[C.black,C.yellow,C.black], top:coneUp(22,C.black)+coneDown(41,C.black)},
+    O:{h:[C.yellow,C.black,C.yellow], top:coneDown(22,C.black)+coneUp(41,C.black)},
+    danger:{h:[C.black,C.red,C.black], top:`<circle cx="50" cy="24" r="7" fill="${C.black}"/><circle cx="50" cy="40" r="7" fill="${C.black}"/>`},
+    saine:{v:[C.red,C.white,C.red,C.white,C.red], top:`<circle cx="50" cy="38" r="8" fill="${C.red}"/>`},
+    speciale:{h:[C.yellow], top:`<g stroke="${C.yellow}" stroke-width="5" stroke-linecap="round"><line x1="42" y1="30" x2="58" y2="46"/><line x1="58" y1="30" x2="42" y2="46"/></g>`},
+    nouveau:{v:[C.blue,C.yellow,C.blue,C.yellow,C.blue,C.yellow], top:`<g stroke="${C.yellow}" stroke-width="5" stroke-linecap="round"><line x1="50" y1="28" x2="50" y2="47"/><line x1="41" y1="37.5" x2="59" y2="37.5"/></g>`}
+  }[type];
+  const body = "M30,150 L39,72 L61,72 L70,150 Z";
+  let fill = "";
+  if(specs.h){const n=specs.h.length, hh=78/n; specs.h.forEach((c,i)=>{fill+=`<rect x="25" y="${72+i*hh}" width="50" height="${hh+0.5}" fill="${c}"/>`;});}
+  if(specs.v){const n=specs.v.length, ww=40/n; specs.v.forEach((c,i)=>{fill+=`<rect x="${30+i*ww}" y="70" width="${ww+0.5}" height="82" fill="${c}"/>`;});}
+  return `<svg viewBox="0 0 100 170" width="${w}" height="${w*1.7}" role="img" aria-label="marque de balisage">
+  <defs><clipPath id="${id}"><path d="${body}"/></clipPath></defs>
+  <rect x="0" y="0" width="100" height="170" fill="#eaf4fb" rx="10"/>
+  <line x1="50" y1="72" x2="50" y2="48" stroke="#444" stroke-width="3"/>
+  ${specs.top}
+  <g clip-path="url(#${id})">${fill}</g>
+  <path d="${body}" fill="none" stroke="#333" stroke-width="1.5"/>
+  <path d="M0,152 Q12,146 25,152 T50,152 T75,152 T100,152 L100,170 L0,170 Z" fill="#7fb3d9"/>
+</svg>`;
+}
+
+/* =========================================================
+   COURS
+   ========================================================= */
+function mk(t,label){return `<div class="mark">${markSVG(t,90)}<b>${label}</b></div>`;}
+const COURS = {
+bal:`<h3>Balisage latéral (région A, France)</h3>
+<p>On se place <b>en venant du large vers le port</b>. <b>Rouge à bâbord</b> (gauche), <b>vert à tribord</b> (droite). En sortant du port, tout s'inverse.</p>
+<div class="marks">${mk("babord","Bâbord : rouge, cylindre, feu rouge")}${mk("tribord","Tribord : vert, cône ▲, feu vert")}</div>
+<div class="tip">Numéros <b>pairs à bâbord</b>, <b>impairs à tribord</b>. Un rythme <b>2+1</b> indique une bifurcation (chenal préféré).</div>
+<h3>Les cardinales</h3>
+<p>Une cardinale porte le nom du côté où <b>il faut passer</b>. Les pointes des cônes montrent où est le <b>noir</b>. Feu toujours <b>blanc scintillant</b>.</p>
+<div class="marks">${mk("N","Nord ▲▲ : scintillant continu")}${mk("E","Est ▲▼ : 3 scintillements")}${mk("S","Sud ▼▼ : 6 + 1 éclat long")}${mk("O","Ouest ▼▲ : 9 scintillements")}</div>
+<div class="tip">Astuce du cadran de montre : Est = 3 h → 3, Sud = 6 h → 6, Ouest = 9 h → 9, Nord = midi → continu.</div>
+<h3>Les autres marques</h3>
+<div class="marks">${mk("danger","Danger isolé : feu blanc 2 éclats")}${mk("saine","Eaux saines : feu blanc iso, occ., 1 éclat long ou Mo(A)")}${mk("speciale","Spéciale : feu jaune")}${mk("nouveau","Danger nouveau : feu alterné bleu/jaune")}</div>
+<h3>Rythmes des feux</h3>
+<table><tr><th>Rythme</th><th>Signification</th></tr>
+<tr><td>Fixe</td><td>Lumière continue</td></tr>
+<tr><td>Éclats</td><td>Lumière plus courte que l'obscurité</td></tr>
+<tr><td>Occultations</td><td>Lumière plus longue que l'obscurité</td></tr>
+<tr><td>Isophase</td><td>Lumière = obscurité</td></tr>
+<tr><td>Scintillant</td><td>Éclats très rapides et répétés</td></tr></table>`,
+
+feux:`<h3>Feux de route</h3>
+<table><tr><th>Feu</th><th>Couleur</th><th>Secteur</th></tr>
+<tr><td>Tête de mât (moteur)</td><td>Blanc</td><td>225° vers l'avant</td></tr>
+<tr><td>Côté tribord</td><td>Vert</td><td>112,5°</td></tr>
+<tr><td>Côté bâbord</td><td>Rouge</td><td>112,5°</td></tr>
+<tr><td>Poupe</td><td>Blanc</td><td>135° vers l'arrière</td></tr>
+<tr><td>Remorquage</td><td>Jaune</td><td>135°, au-dessus du feu de poupe</td></tr></table>
+<p><b>Navire à moteur</b> : tête de mât + feux de côté + poupe (moins de 12 m : un feu blanc sur tout l'horizon peut remplacer tête de mât et poupe). <b>Voilier sous voiles</b> : feux de côté + poupe, pas de tête de mât (feu tricolore possible en dessous de 20 m).</p>
+<h3>Situations particulières</h3>
+<table><tr><th>Situation</th><th>Nuit</th><th>Jour</th></tr>
+<tr><td>Au mouillage</td><td>1 blanc tout horizon</td><td>1 boule</td></tr>
+<tr><td>Non maître de sa manœuvre</td><td>2 rouges superposés</td><td>2 boules</td></tr>
+<tr><td>Capacité de manœuvre restreinte</td><td>Rouge-blanc-rouge</td><td>Boule-losange-boule</td></tr>
+<tr><td>Handicapé par son tirant d'eau</td><td>3 rouges superposés</td><td>Cylindre</td></tr>
+<tr><td>Chalutier</td><td>Vert sur blanc</td><td>2 cônes pointes réunies</td></tr>
+<tr><td>Autre pêche</td><td>Rouge sur blanc</td><td>2 cônes pointes réunies</td></tr>
+<tr><td>Pilote</td><td>Blanc sur rouge</td><td>—</td></tr>
+<tr><td>Échoué</td><td>Mouillage + 2 rouges</td><td>3 boules</td></tr>
+<tr><td>Voilier au moteur</td><td>Feux d'un navire à moteur</td><td>Cône pointe en bas</td></tr></table>
+<div class="tip">« Vert sur blanc, chalutier · Rouge sur blanc, pêcheur · Blanc sur rouge, pilote ». Pavillon <b>A</b> blanc et bleu : plongeurs, on s'écarte et on ralentit.</div>`,
+
+barre:`<h3>Qui s'écarte ?</h3>
+<ul>
+<li><b>Face à face (moteurs)</b> : chacun vient sur tribord.</li>
+<li><b>Croisement (moteurs)</b> : celui qui voit l'autre <b>sur son tribord</b> s'écarte. De nuit : <b>je vois son feu rouge → je m'écarte</b>.</li>
+<li><b>Rattrapage</b> : le rattrapant s'écarte toujours (il arrive par plus de 22,5° sur l'arrière du travers).</li>
+<li><b>Voiliers, amures différentes</b> : bâbord amures s'écarte.</li>
+<li><b>Voiliers, mêmes amures</b> : celui au vent s'écarte.</li>
+</ul>
+<h3>Ordre de priorité (hors rattrapage, chenal et rail)</h3>
+<p>Le navire à moteur s'écarte : du voilier, du navire en pêche, du navire à capacité de manœuvre restreinte et du navire non maître de sa manœuvre. Le voilier s'écarte : du navire en pêche, à capacité restreinte et non maître de sa manœuvre.</p>
+<div class="tip">Le non-privilégié manœuvre <b>tôt et franchement</b>. Le privilégié garde cap et vitesse, mais agit si l'autre ne fait rien. Risque d'abordage = <b>relèvement constant</b> et distance qui diminue.</div>
+<h3>Chenal et rail</h3>
+<p>Dans un chenal : on tient sa droite ; un navire de moins de 20 m ou un voilier ne gêne pas ceux qui ne peuvent naviguer que dans le chenal. On traverse un rail (DST) avec un cap <b>perpendiculaire</b> au trafic.</p>`,
+
+son:`<h3>Signaux de manœuvre</h3>
+<table><tr><th>Signal</th><th>Signification</th></tr>
+<tr><td>1 bref</td><td>Je viens sur tribord</td></tr>
+<tr><td>2 brefs</td><td>Je viens sur bâbord</td></tr>
+<tr><td>3 brefs</td><td>Je bats en arrière</td></tr>
+<tr><td>5 brefs ou plus</td><td>Doute sur vos intentions</td></tr>
+<tr><td>2 prolongés + 1 bref</td><td>Je vais vous rattraper par tribord</td></tr>
+<tr><td>2 prolongés + 2 brefs</td><td>Je vais vous rattraper par bâbord</td></tr></table>
+<p>Son bref ≈ 1 s · son prolongé = 4 à 6 s.</p>
+<h3>Visibilité réduite (au moins toutes les 2 minutes)</h3>
+<table><tr><th>Navire</th><th>Signal</th></tr>
+<tr><td>Moteur faisant route</td><td>1 prolongé</td></tr>
+<tr><td>Moteur stoppé sans erre</td><td>2 prolongés</td></tr>
+<tr><td>Voilier, pêche, non maître, capacité restreinte, remorqueur</td><td>1 prolongé + 2 brefs</td></tr>
+<tr><td>Au mouillage (moins de 100 m)</td><td>Cloche ≈ 5 s chaque minute</td></tr></table>
+<h3>Signaux de détresse</h3>
+<p>Feux rouges à main, fusées rouges à parachute, fumigène orange, bras levés et abaissés lentement, MAYDAY à la radio, SOS, son continu de corne de brume.</p>`,
+
+vhf:`<h3>VHF</h3>
+<p><b>Canal 16</b> : veille, appel, détresse, urgence, sécurité.</p>
+<table><tr><th>Mot</th><th>Signification</th></tr>
+<tr><td>MAYDAY (×3)</td><td>Détresse : danger grave et imminent</td></tr>
+<tr><td>PAN PAN (×3)</td><td>Urgence, sans danger imminent</td></tr>
+<tr><td>SÉCURITÉ (×3)</td><td>Information de sécurité (météo, navigation)</td></tr></table>
+<div class="tip">Message de détresse : MAYDAY ×3, ici (nom ×3), MAYDAY (nom), <b>position</b>, <b>nature de la détresse</b>, aide demandée, nombre de personnes, infos utiles. Le bouton <b>ASN</b> envoie une alerte automatique avec le MMSI (et la position si GPS).</div>
+<p>Les secours sont coordonnés par les <b>CROSS</b>. Par téléphone : <b>196</b>.</p>
+<h3>Homme à la mer</h3>
+<p>Crier, lancer la bouée, ne jamais quitter la personne des yeux, revenir et <b>débrayer</b> près d'elle (hélice). Hypothermie : sécher, couvrir, réchauffer progressivement, pas d'alcool.</p>`,
+
+regl:`<h3>Le permis côtier</h3>
+<ul>
+<li>Obligatoire au-delà de <b>6 CV (4,5 kW)</b>.</li>
+<li>Navigation jusqu'à <b>6 milles d'un abri</b>, de jour comme de nuit.</li>
+<li>Âge minimum : <b>16 ans</b>.</li>
+<li>Code : <b>40 questions, 5 fautes maximum</b>, sur tablette.</li>
+</ul>
+<h3>À retenir</h3>
+<ul>
+<li>1 mille = <b>1 852 m</b> ; 1 nœud = <b>1 mille par heure</b>.</li>
+<li>Bande des 300 m : <b>5 nœuds</b> maximum (sauf règle locale).</li>
+<li>Alcool : interdit au-delà de <b>0,5 g/l</b> de sang.</li>
+<li>Le chef de bord est responsable de la sécurité de tous.</li>
+</ul>`,
+
+secu:`<h3>Zones et armement (division 240)</h3>
+<table><tr><th>Armement</th><th>Distance d'un abri</th></tr>
+<tr><td>Basique</td><td>Moins de 2 milles</td></tr>
+<tr><td>Côtier</td><td>De 2 à 6 milles</td></tr>
+<tr><td>Semi-hauturier</td><td>De 6 à 60 milles</td></tr>
+<tr><td>Hauturier</td><td>Au-delà de 60 milles</td></tr></table>
+<p><b>Basique</b> : un équipement de flottabilité par personne, un dispositif lumineux, moyens de lutte contre l'incendie, dispositif d'assèchement manuel, dispositif de remorquage, ligne de mouillage (selon le bateau), pavillon national hors eaux territoriales…</p>
+<p><b>Côtier</b> = basique + <b>3 feux rouges à main</b>, <b>bouée fer à cheval ou couronne</b>, <b>compas magnétique</b>, <b>cartes marines officielles</b>, RIPAM et description du balisage.</p>
+<div class="tip">Gilets : <b>50 N</b> jusqu'à 2 milles, <b>100 N</b> jusqu'à 6 milles, 150 N au-delà.</div>
+<h3>Catégories de conception</h3>
+<table><tr><th>Cat.</th><th>Vent</th><th>Vagues</th></tr>
+<tr><td>A</td><td>Plus de force 8</td><td>Plus de 4 m</td></tr>
+<tr><td>B</td><td>Jusqu'à force 8</td><td>Jusqu'à 4 m</td></tr>
+<tr><td>C</td><td>Jusqu'à force 6</td><td>Jusqu'à 2 m</td></tr>
+<tr><td>D</td><td>Jusqu'à force 4</td><td>Jusqu'à 0,30 m</td></tr></table>`,
+
+meteo:`<h3>Échelle de Beaufort</h3>
+<table><tr><th>Force</th><th>Nom</th><th>Nœuds</th></tr>
+<tr><td>3</td><td>Petite brise</td><td>7-10</td></tr>
+<tr><td>4</td><td>Jolie brise</td><td>11-16</td></tr>
+<tr><td>5</td><td>Bonne brise</td><td>17-21</td></tr>
+<tr><td>6</td><td>Vent frais</td><td>22-27</td></tr>
+<tr><td>7</td><td>Grand frais</td><td>28-33</td></tr>
+<tr><td>8</td><td>Coup de vent</td><td>34-40</td></tr>
+<tr><td>9</td><td>Fort coup de vent</td><td>41-47</td></tr>
+<tr><td>10</td><td>Tempête</td><td>48-55</td></tr></table>
+<div class="tip">BMS-côte à partir de <b>force 7</b> (BMS-large : force 8). Bulletin côte : jusqu'à <b>20 milles</b>. Un vent est nommé par la direction <b>d'où il vient</b>.</div>
+<p>Pression normale ≈ <b>1013 hPa</b> ; baromètre qui chute vite = dégradation. Brise de mer le jour (mer → terre), brise de terre la nuit. Vent contre courant = mer creuse.</p>`,
+
+maree:`<h3>Vocabulaire</h3>
+<ul><li><b>Flot</b> : marée montante · <b>Jusant</b> : marée descendante · <b>Étale</b> : niveau presque stable.</li>
+<li><b>Marnage</b> = hauteur PM − hauteur BM.</li>
+<li>Coefficients de <b>20 à 120</b>. Vives-eaux : nouvelle et pleine lune. Mortes-eaux : quartiers.</li>
+<li>Environ <b>6 h</b> entre pleine mer et basse mer.</li></ul>
+<h3>Règle des douzièmes</h3>
+<table><tr><th>Heure</th><td>1re</td><td>2e</td><td>3e</td><td>4e</td><td>5e</td><td>6e</td></tr>
+<tr><th>Douzièmes</th><td>1</td><td>2</td><td>3</td><td>3</td><td>2</td><td>1</td></tr></table>
+<p>Exemple : marnage 6 m → 0,50 m / 1 m / 1,50 m / 1,50 m / 1 m / 0,50 m.</p>
+<h3>Carte marine</h3>
+<p>Hauteur d'eau = <b>sonde + hauteur de marée</b>. Le zéro des cartes ≈ plus basses mers. Une sonde <b>soulignée</b> = fond qui découvre. 1 minute de latitude = <b>1 mille</b>.</p>`,
+
+env:`<h3>Vocabulaire</h3>
+<ul><li><b>Bâbord</b> gauche, <b>tribord</b> droite (« batterie » : BA-TRI).</li>
+<li><b>Poupe</b> arrière, <b>proue</b> avant, <b>travers</b> à 90° de l'axe.</li>
+<li><b>Tirant d'eau</b> : de la flottaison au point le plus bas.</li>
+<li><b>Erre</b> : vitesse sur l'élan. <b>Amures</b> : côté d'où vient le vent.</li></ul>
+<h3>Respect du milieu</h3>
+<p>Aucun déchet à la mer. Ne pas mouiller dans les herbiers. Mammifères marins : ralentir, ne pas poursuivre, garder ses distances.</p>`
+};
+
+/* =========================================================
+   STOCKAGE (sécurisé)
+   ========================================================= */
+const KEY = "permisCotierV1";
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{wrong:{},exams:[],seen:{}};}catch(e){return {wrong:{},exams:[],seen:{}};}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(DB));}catch(e){}}
+let DB = load();
+DB.wrong = DB.wrong||{}; DB.exams = DB.exams||[]; DB.seen = DB.seen||{};
+
+/* identifiants stables */
+const BANK = Q.map((q,i)=>({id:q[0]+"|"+q[1]+"|"+(q[4]||""), t:q[0], q:q[1], a:q[2], e:q[3], img:q[4]||null}));
+
+/* =========================================================
+   OUTILS
+   ========================================================= */
+const app = document.getElementById("app");
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function prepare(list){return list.map(q=>{const order=shuffle([0,1,2,3]);return {...q, order, chosen:null};});}
+
+/* =========================================================
+   VUES
+   ========================================================= */
+function setNav(v){document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.view===v));}
+document.getElementById("nav").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;go(b.dataset.view);});
+function go(v){setNav(v);window.scrollTo(0,0);({home:home,cours:cours,train:train,exam:examIntro,errors:errors})[v]();}
+
+function home(){
+  const ex = DB.exams; const last = ex.slice(-5);
+  const best = ex.length?Math.max(...ex.map(x=>x.s)):"–";
+  const nbWrong = Object.keys(DB.wrong).length;
+  const passed = ex.filter(x=>x.s>=35).length;
+  app.innerHTML = `
+  <div class="card"><h2>Bienvenue à bord 👋</h2>
+  <p>Ce site t'entraîne au <b>code du permis bateau option côtière</b> : ${BANK.length} questions réparties en ${Object.keys(THEMES).length} thèmes, des fiches de cours et des examens blancs au format officiel (<b>40 questions, 5 fautes maximum</b>).</p>
+  <div class="actions"><button class="btn" onclick="go('exam')">Lancer un examen blanc</button><button class="btn sec" onclick="go('cours')">Réviser le cours</button></div></div>
+  <div class="card"><h2>Ma progression</h2>
+  <div class="stats">
+   <div class="stat"><b>${ex.length}</b><span>examens blancs</span></div>
+   <div class="stat"><b>${best}${ex.length?"/40":""}</b><span>meilleur score</span></div>
+   <div class="stat"><b>${passed}</b><span>examens réussis</span></div>
+   <div class="stat"><b>${nbWrong}</b><span>questions à revoir</span></div>
+  </div>
+  ${last.length?`<h3>Derniers examens</h3><div class="chips">${last.map(x=>`<span class="chip" style="background:${x.s>=35?'#e7f7ee':'#fdeaea'}">${x.d} : ${x.s}/40</span>`).join("")}</div>`:""}
+  <div class="tip">Objectif : réussir <b>plusieurs examens blancs d'affilée</b> avec au maximum 5 fautes avant de te présenter.</div>
+  </div>`;
+}
+
+function cours(sel){
+  const keys = Object.keys(THEMES);
+  sel = sel||keys[0];
+  app.innerHTML = `<div class="card"><h2>Fiches de cours</h2><div class="chips">${keys.map(k=>`<button class="chip" style="border:0;cursor:pointer;${k===sel?'background:#1e6fb8;color:#fff':''}" onclick="cours('${k}')">${THEMES[k].icon} ${THEMES[k].name}</button>`).join("")}</div></div>
+  <div class="card"><h2>${THEMES[sel].icon} ${THEMES[sel].name}</h2>${COURS[sel]}
+  <div class="actions"><button class="btn" onclick="startTrain('${sel}')">S'entraîner sur ce thème</button></div></div>`;
+}
+
+function train(){
+  app.innerHTML = `<div class="card"><h2>Entraînement par thème</h2><p>Correction immédiate après chaque question.</p>
+  <div class="grid">${Object.keys(THEMES).map(k=>{const n=BANK.filter(q=>q.t===k).length;return `<button class="theme-btn" onclick="startTrain('${k}')"><b>${THEMES[k].icon} ${THEMES[k].name}</b><small>${n} questions</small></button>`;}).join("")}
+  <button class="theme-btn" onclick="startTrain('all')"><b>🎲 Tous les thèmes</b><small>20 questions au hasard</small></button></div></div>`;
+}
+
+/* ---------- Session (entraînement ou examen) ---------- */
+let S = null;
+function startTrain(t){
+  let list = t==="all"?shuffle(BANK).slice(0,20):shuffle(BANK.filter(q=>q.t===t));
+  S = {mode:"train", title:t==="all"?"Tous les thèmes":THEMES[t].name, list:prepare(list), i:0, start:Date.now()};
+  setNav("train"); renderQ();
+}
+function startErrors(){
+  const ids = Object.keys(DB.wrong);
+  const list = shuffle(BANK.filter(q=>ids.includes(q.id)));
+  if(!list.length){errors();return;}
+  S = {mode:"train", title:"Mes erreurs", list:prepare(list), i:0, start:Date.now(), fromErrors:true};
+  renderQ();
+}
+function examIntro(){
+  app.innerHTML = `<div class="card"><h2>Examen blanc</h2>
+  <p>Format de l'épreuve officielle : <b>40 questions</b>, une seule bonne réponse par question, <b>5 fautes maximum</b> (35/40 pour réussir).</p>
+  <p>Pas de correction pendant l'examen : tu verras ton résultat et le corrigé détaillé à la fin.</p>
+  <div class="actions"><button class="btn" onclick="startExam()">Commencer l'examen</button></div></div>`;
+}
+function startExam(){
+  // tirage équilibré : quelques questions de chaque thème, puis complément au hasard
+  const keys = Object.keys(THEMES); let pick = [];
+  const quota = {bal:8,feux:6,barre:6,son:4,vhf:3,regl:3,secu:4,meteo:3,maree:2,env:1};
+  keys.forEach(k=>{pick = pick.concat(shuffle(BANK.filter(q=>q.t===k)).slice(0,quota[k]||1));});
+  if(pick.length<40){const rest = shuffle(BANK.filter(q=>!pick.includes(q)));pick = pick.concat(rest.slice(0,40-pick.length));}
+  S = {mode:"exam", title:"Examen blanc", list:prepare(shuffle(pick).slice(0,40)), i:0, start:Date.now()};
+  setNav("exam"); renderQ();
+}
+
+function renderQ(){
+  const q = S.list[S.i]; const n = S.list.length;
+  const answered = q.chosen!==null;
+  const showCorr = S.mode==="train" && answered;
+  const letters = ["A","B","C","D"];
+  app.innerHTML = `<div class="card">
+   <div class="qhead"><span>${esc(S.title)} · ${THEMES[q.t].name}</span><span>${S.i+1} / ${n}</span></div>
+   <div class="progress"><div style="width:${(S.i/n)*100}%"></div></div>
+   ${q.img?`<div class="qimg">${markSVG(q.img,110)}</div>`:""}
+   <div class="question">${esc(q.q)}</div>
+   <div class="answers">${q.order.map((k,idx)=>{
+      let cls="answer";
+      if(showCorr){ if(k===0) cls+=" good"; else if(k===q.chosen) cls+=" bad"; }
+      else if(q.chosen===k) cls+=" sel";
+      return `<button class="${cls}" ${showCorr?"disabled":""} onclick="choose(${k})"><span class="l">${letters[idx]}</span><span>${esc(q.a[k])}</span></button>`;}).join("")}
+   </div>
+   ${showCorr?`<div class="expl ${q.chosen===0?"okb":"kob"}"><b>${q.chosen===0?"✅ Bonne réponse !":"❌ Mauvaise réponse."}</b> ${esc(q.e)}</div>`:""}
+   <div class="actions">
+     <button class="btn sec" onclick="quit()">Quitter</button>
+     ${S.mode==="exam"
+       ? `<span>${S.i>0?`<button class="btn sec" onclick="prevQ()">◀ Précédente</button> `:""}<button class="btn" ${answered?"":"disabled"} onclick="nextQ()">${S.i===n-1?"Terminer":"Suivante ▶"}</button></span>`
+       : (answered?`<button class="btn" onclick="nextQ()">${S.i===n-1?"Voir le bilan":"Suivante ▶"}</button>`:"")}
+   </div></div>`;
+}
+function choose(k){
+  const q = S.list[S.i];
+  if(S.mode==="train"){
+    if(q.chosen!==null) return;
+    q.chosen = k; record(q, k===0);
+  } else { q.chosen = k; }
+  renderQ();
+}
+function record(q,ok){
+  if(ok){ if(DB.wrong[q.id]!==undefined){ DB.wrong[q.id]--; if(DB.wrong[q.id]<=0) delete DB.wrong[q.id]; } }
+  else { DB.wrong[q.id] = (DB.wrong[q.id]||0)+2; }
+  save();
+}
+function prevQ(){ if(S.i>0){S.i--;renderQ();} }
+function nextQ(){ if(S.i<S.list.length-1){S.i++;renderQ();window.scrollTo(0,0);} else finish(); }
+function quit(){ S=null; go("home"); }
+
+function finish(){
+  const good = S.list.filter(q=>q.chosen===0).length; const n = S.list.length;
+  const mins = Math.round((Date.now()-S.start)/60000);
+  if(S.mode==="exam"){
+    S.list.forEach(q=>record(q,q.chosen===0));
+    const d = new Date(); DB.exams.push({d:d.toLocaleDateString("fr-FR"), s:good}); DB.exams = DB.exams.slice(-50); save();
+  }
+  const fautes = n-good;
+  const pass = S.mode==="exam" ? fautes<=5 : good/n>=35/40;
+  // bilan par thème
+  const byT = {}; S.list.forEach(q=>{byT[q.t]=byT[q.t]||{g:0,n:0};byT[q.t].n++; if(q.chosen===0)byT[q.t].g++;});
+  app.innerHTML = `<div class="card"><h2>${S.mode==="exam"?"Résultat de l'examen blanc":"Bilan : "+esc(S.title)}</h2>
+   <div class="result-big ${pass?"pass":"fail"}">${good} / ${n}</div>
+   <p style="text-align:center"><b>${fautes} faute${fautes>1?"s":""}</b> · ${mins} min · ${S.mode==="exam"?(pass?"🎉 <span class='ok-t'>Examen réussi !</span>":"<span class='ko-t'>Examen non réussi (5 fautes maximum)</span>"):(pass?"<span class='ok-t'>Très bon niveau sur ce thème</span>":"<span class='ko-t'>Encore un peu de travail sur ce thème</span>")}</p>
+   <h3>Par thème</h3><table><tr><th>Thème</th><th>Score</th></tr>${Object.keys(byT).map(k=>`<tr><td>${THEMES[k].icon} ${THEMES[k].name}</td><td>${byT[k].g}/${byT[k].n}</td></tr>`).join("")}</table>
+   <div class="actions"><button class="btn" onclick="${S.mode==="exam"?"startExam()":"go('train')"}">${S.mode==="exam"?"Nouvel examen":"Autre thème"}</button><button class="btn sec" onclick="go('errors')">Revoir mes erreurs</button></div></div>
+   ${S.mode==="exam"?`<div class="card"><h2>Corrigé détaillé</h2>${S.list.map((q,i)=>`<div class="review-item">
+     ${q.img?`<div style="float:right;margin-left:8px">${markSVG(q.img,48)}</div>`:""}
+     <b>${i+1}. ${esc(q.q)}</b><br>
+     ${q.chosen===0?`<span class="ok-t">✅ ${esc(q.a[0])}</span>`:`<span class="ko-t">❌ Ta réponse : ${esc(q.a[q.chosen])}</span><br><span class="ok-t">Bonne réponse : ${esc(q.a[0])}</span>`}
+     <div style="color:#5b6b7c;font-size:.9rem;margin-top:4px;clear:both">${esc(q.e)}</div></div>`).join("")}</div>`:""}`;
+}
+
+function errors(){
+  const ids = Object.keys(DB.wrong);
+  const list = BANK.filter(q=>ids.includes(q.id));
+  app.innerHTML = `<div class="card"><h2>Mes erreurs</h2>
+  ${list.length?`<p>${list.length} question${list.length>1?"s":""} à retravailler. Une question disparaît de la liste quand tu y as bien répondu plusieurs fois.</p>
+  <div class="actions"><button class="btn" onclick="startErrors()">Réviser mes erreurs</button><button class="btn sec" onclick="resetAll()">Tout remettre à zéro</button></div>
+  <h3>Liste</h3>${list.map(q=>`<div class="review-item"><b>${esc(q.q)}</b><br><span class="ok-t">${esc(q.a[0])}</span></div>`).join("")}`
+  :`<p>Aucune erreur enregistrée pour l'instant. Fais un examen blanc ou un entraînement : les questions ratées apparaîtront ici.</p>
+  <div class="actions"><button class="btn" onclick="go('exam')">Lancer un examen blanc</button>${DB.exams.length?`<button class="btn sec" onclick="resetAll()">Remettre à zéro</button>`:""}</div>`}</div>`;
+}
+function resetAll(){ DB = {wrong:{},exams:[],seen:{}}; save(); go("home"); }
+
+home();
+</script>
+</body>
+</html>
