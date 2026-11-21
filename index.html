@@ -1,4 +1,4 @@
-<!doctype html><html lang="fr"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!doctype html><html lang="fr"><head><script>(function(){try{if(sessionStorage.getItem("capAccueil")==="1")return;fetch("/",{method:"HEAD",cache:"no-store"}).then(function(r){if(r.ok)location.replace("/");}).catch(function(){});}catch(e){}})();</script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Cap sur le permis : réussir le code du permis bateau côtier</title>
 <meta name="description" content="Préparez le code du permis bateau option côtière : cours, fiches, jeux de balisage, QCM corrigés et examens blancs de 40 questions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -485,6 +485,13 @@ html.wel-open,html.wel-open body{overflow:hidden}
 .twincard:hover{border-color:var(--blue)}
 @media (max-width:640px){.twincard{flex-wrap:wrap;gap:14px;padding:18px}.twincard>svg:first-child{width:52px;height:52px}.twincard b{font-size:24px}.twincard .tw-btn{flex:1 1 100%}}
 .twinwrap+.sitefoot{margin-top:28px}
+
+/* accueil commun Cap sur l'examen */
+.home-link{display:flex;justify-content:center;margin:0 0 14px}
+.home-link a{display:inline-flex;align-items:center;gap:8px;font:800 15px var(--f-body);color:var(--blue-d);text-decoration:none;border-bottom:2px solid currentColor}
+.home-link svg{width:20px;height:20px}
+.wel{display:none!important}
+html.wel-open,html.wel-open body{overflow:auto!important}
 </style></head>
 <body>
 <header class="bar" id="bar">
@@ -497,12 +504,12 @@ html.wel-open,html.wel-open body{overflow:hidden}
       <a href="#entrainement" data-tab="entrainement">QCM</a>
       <a href="#examen" data-tab="examen">Examen</a>
     </nav>
-    <a class="twin" href="https://applicrr.github.io/reussir.son.crr/" title="Préparer aussi le CRR (certificat radio VHF)"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1E88E5"></circle><path d="M17 6v10M12 9l5-3 5 3" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path><path d="M5 22c3-3 5-3 8 0s5 3 8 0 5-3 8 0" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" fill="none"></path></svg><span>CRR</span></a>
+    <a class="twin" href="/" title="Retour à l'accueil Cap sur l'examen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg><span>Accueil</span></a>
     <a class="igtab" href="https://www.instagram.com/reussir.son.crr/" target="_blank" rel="noopener" title="M'écrire sur Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-4.3A8 8 0 0 1 13 4a8 8 0 0 1 8 8Z"></path><path d="M9 11h8M9 15h5"></path></svg><span>Instagram</span></a>
   </div>
 </header>
 <main class="wrap" id="app"></main>
-<section class="wrap twinwrap"><a class="twincard" href="https://applicrr.github.io/reussir.son.crr/"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1E88E5"></circle><path d="M17 6v10M12 9l5-3 5 3" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path><path d="M5 22c3-3 5-3 8 0s5 3 8 0 5-3 8 0" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" fill="none"></path></svg><span><small>Le site jumeau</small><b>Cap sur le CRR</b><em>Le certificat radio VHF : cours, fiches, alphabet marin, QCM et examens blancs.</em></span><i class="btn tw-btn">Aller sur le site CRR</i></a></section>
+<section class="wrap twinwrap"><p class="home-link"><a href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>Retour à l'accueil Cap sur l'examen</a></p><a class="twincard" href="https://applicrr.github.io/reussir.son.crr/"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1E88E5"></circle><path d="M17 6v10M12 9l5-3 5 3" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path><path d="M5 22c3-3 5-3 8 0s5 3 8 0 5-3 8 0" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" fill="none"></path></svg><span><small>Le site jumeau</small><b>Cap sur le CRR</b><em>Le certificat radio VHF : cours, fiches, alphabet marin, QCM et examens blancs.</em></span><i class="btn tw-btn">Aller sur le site CRR</i></a></section>
 <footer class="wrap sitefoot"><p class="igline">Une question, une erreur&nbsp;? Une amélioration à proposer&nbsp;? <a class="iglink" href="https://www.instagram.com/reussir.son.crr/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-8 8H8l-4 3v-4.3A8 8 0 0 1 13 4a8 8 0 0 1 8 8Z"></path><path d="M9 11h8M9 15h5"></path></svg>Écrivez-moi sur Instagram</a></p>
 <p><b>Outil de révision non officiel.</b> Ce site est une aide personnelle à la préparation du code du permis plaisance option côtière. Il n'est ni édité, ni validé, ni affilié à l'administration, à un bateau-école ou à un éditeur de code. Le cours, les fiches et les questions sont rédigés d'après le programme de l'examen (balisage AISM région A, RIPAM, division 240) ; la réglementation peut évoluer : vérifiez toujours auprès de votre bateau-école. Aucune garantie de réussite à l'examen.</p></footer>
 <script>
